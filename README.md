@@ -2,7 +2,8 @@
 
 
 ## Wireframes
-![Screen Shot 2022-10-07 at 11 51 07 AM](https://user-images.githubusercontent.com/109879521/194595745-ed36af38-eb0e-4c1e-b0d7-4b666528fcdd.png)
+![Screen Shot 2022-10-07 at 12 10 41 PM](https://user-images.githubusercontent.com/109879521/194599288-3aee5b50-66a3-44ea-a779-22295fd15c50.png)
+
 
 
 ***MVP User Stories***
