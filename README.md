@@ -1,7 +1,9 @@
 # Bid-on-me
 
 
-# MVP User Stories
+## Wireframes
+![Screen Shot 2022-10-07 at 11 51 07 AM](https://user-images.githubusercontent.com/109879521/194595745-ed36af38-eb0e-4c1e-b0d7-4b666528fcdd.png)
+
 
 ***MVP User Stories***
 
