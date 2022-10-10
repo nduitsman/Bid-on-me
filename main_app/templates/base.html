@@ -19,10 +19,10 @@
     <body>
         <nav class='navbar'>
             <div class='nav-start'>
-                <a class = 'navbar-item-link' href='/'>Home</a>
-                <a class = 'navbar-item-link' href='#'>About</a>
+                <a class = 'navbar-item-link' href="{% url 'home' %}">Home</a>
                 {% if user.is_authenticated %}
-                    <a class = 'navbar-item-link' href='auto/new'>New Post</a>
+                    <a class = 'navbar-item-link' href="{% url 'auto_posts' %}">Auto</a>
+                    <a class = 'navbar-item-link' href="{% url 'newAutoPost' %}">New Post</a>
                 {% endif %}
             </div>
             <div class = 'nav-end'>
@@ -35,8 +35,8 @@
             
             </div>
         </nav>
-
-       
-        {% block content %} {% endblock %}
+        <section class='block-content'>
+            {% block content %} {% endblock %}
+        </section>
     </body>
 </html>

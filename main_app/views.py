@@ -1,3 +1,4 @@
+from distutils.sysconfig import get_config_h_filename
 from django.shortcuts import render, redirect
 from django.views import View 
 from django.http import HttpResponse 
@@ -5,7 +6,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.urls import reverse
-from .models import Auto, Artist
+from .models import Auto
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 # Auth
@@ -33,19 +34,19 @@ class Signup(View):
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
-        
+@method_decorator(login_required, name='dispatch')
 class AutoPost(CreateView):
     model = Auto
     fields = ['make','vehicle_model','year' ,'condition','mileage','accidents','tickets','premium','provider','liability','uninsured','medical','roadside','rental','safe_driver','zip' ,'annual_miles','credit_score','age','coverage_preference','username']
     template_name = 'autopost.html'
     success_url='/'
-    # def post(self, request, pk):
-    #     user = User.objects.get(id=request.user.id)
     
-    # def form_valid(self, form):
-    #     form.instance.user = self.request.user
-    #     return super(AutoPost, self).form_valid(form)
-    # def get_success_url(self):
-    #     print(self.kwargs)
-    #     return reverse('home', kwargs={'pk':self.object.pk})
+@method_decorator(login_required, name='dispatch')
+class AutoList(TemplateView):
+    template_name = 'auto_list.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        context["auto_posts"] = Auto.objects.all()
+        return context
+    
     

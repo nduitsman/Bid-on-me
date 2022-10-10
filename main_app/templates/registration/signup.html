@@ -11,13 +11,10 @@
         </header>
         <section class="modal-card-body">
             <div class="content">
-{% comment %} FORM START {% endcomment %}
-                {% comment %} {% if form.errors %}
-                    {{ form.errors }}
-                {% endif %} {% endcomment %}
+
                 <form method="post" action="{% url 'signup' %}">
                 {% csrf_token %}
-                {% comment %} {{form.as_p}} {% endcomment %}
+
                 <div class="field">
                     <p class="control has-icons-left has-icons-right">
                     <input class='input' type='text' name='username' autofocus autocapitalize='none' autocomplete='username' maxlength='20' required id='id_username' placeholder = 'Username'></input>
@@ -63,7 +60,7 @@
                     </p>
                 </div>
             </form>
-{% comment %} FORM END {% endcomment %}
+
         <div> 
         </section>
 
@@ -85,5 +82,5 @@
        $(".modal").removeClass("is-active");        
     });
     </script>
-{% comment %} MODAL END {% endcomment %}
+
 {% endblock %}

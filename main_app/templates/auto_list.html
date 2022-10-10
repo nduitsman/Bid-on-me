@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Auto {% endblock%}
+{% block content %}
+    <h1 class='title-large'>Auto Coverage Postings</h1>
+    <div class='listings'>
+        {% for auto_post in auto_posts %}
+            <div class='listing'>
+                    <div class='name_coverage'>
+                        <p class='medium-text'>{{ auto_post.username }} - {{ auto_post.zip }}</p>
+                        <p class='small-text'>{{ auto_post.coverage_preference }}</p>
+                    </div>
+                    <div id='post_liability'>
+                        <p class='medium-text'>${{ auto_post.liability }}</p>
+                    </div>
+                    <div id='current_bids'>
+                        <p class='medium-text'># Bids</p>
+                    </div>
+                    <div id='post_premium'>
+                        <p class='medium-text'>${{ auto_post.premium }}/mo  </p>
+                    </div>
+            </div>
+        
+        {% empty %}
+            <p> No results found </p>
+        {% endfor %}
+    </div>
+{% endblock %}
