@@ -5,7 +5,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.urls import reverse
-from .models import Auto
+from .models import Auto, Artist
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 # Auth
@@ -36,7 +36,7 @@ class Signup(View):
         
 class AutoPost(CreateView):
     model = Auto
-    fields = ['make','model','year','condition','mileage','accidents','tickets','premium','provider','liability','uninsured','medical','roadside','safe_driver','zip','annual_miles','credit_score','age','coverage_preference']
+    fields = ['make','vehicle_model','year' ,'condition','mileage','accidents','tickets','premium','provider','liability','uninsured','medical','roadside','rental','safe_driver','zip' ,'annual_miles','credit_score','age','coverage_preference','username']
     template_name = 'autopost.html'
     success_url='/'
     # def post(self, request, pk):
@@ -48,3 +48,4 @@ class AutoPost(CreateView):
     # def get_success_url(self):
     #     print(self.kwargs)
     #     return reverse('home', kwargs={'pk':self.object.pk})
+    

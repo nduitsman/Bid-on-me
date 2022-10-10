@@ -3,13 +3,13 @@
 {% block content %}
 <h1>For best results, make your post as accurate as possible</h1>
 
-<form method="post" class='form_auto_post'>
+{% comment %} <form method="post" class='form_auto_post'>
     {% csrf_token %} 
     {{form.as_p}} 
     <input type="submit" value="Submit" />
-  </form>  
+  </form>   {% endcomment %}
 
-{% comment %} <form method='post' class='form_auto_post'>
+<form method='post' class='form_auto_post'>
     {% csrf_token %}
     <div class="field">
         <p class="control">
@@ -19,8 +19,8 @@
     </div>
     <div class="field">
         <p class="control">
-            <label for='model'>Model</label>
-            <input class='input' type='text' name='model' autofocus autocapitalize='none' autocomplete='model' required id='id_model' placeholder = 'Model'></input>
+            <label for='vehicle_model'>Model</label>
+            <input class='input' type='text' name='vehicle_model' autofocus autocapitalize='none' autocomplete='vehicle_model' required id='id_vehicle_model' placeholder = 'Model'></input>
         </p>
     </div>
     <div class="field">
@@ -74,14 +74,20 @@
     </div>
     <div class="field">
         <p class="control">
-                <label for='liability'>Current Liability Coverage</label>
-                <input class='input' type='text' name='liability' autofocus autocapitalize='none' autocomplete='liability' required id='id_liability' placeholder = 'Current Liability Coverage'></input>
+            <label for='liability'>Current Liability Coverage</label>
+            <input class='input' type='text' name='liability' autofocus autocapitalize='none' autocomplete='liability' required id='id_liability' placeholder = 'Current Liability Coverage'></input>
         </p>
     </div>
     <div class="field">
         <p class="control">
             <label for='uninsured'>Uninsured/Underinsured Motorist Coverage</label>
             <input class='input' type='text' name='uninsured' autofocus autocapitalize='none' autocomplete='uninsured' required id='id_uninsured' placeholder = 'Current Uninsured/Underinsured Coverage'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for='medical'>Medical Payments Coverage</label>
+            <input class='input' type='number' name='medical' autofocus autocapitalize='none' autocomplete='medical' required id='id_medical' placeholder = 'medical'></input>
         </p>
     </div>
     <div class="field">
@@ -145,7 +151,11 @@
             </div>
         </p>
     </div>
-
+    <div class="field">
+        <p class="control">
+            <input class='input' type='hidden' name='username' autofocus autocapitalize='none' autocomplete='username' required id='id_username' value={{user.username}}></input>
+        </p>
+    </div>
     <input class="button is-success" type="submit" value='Add Post' />
-</form> {% endcomment %}
+</form>
 {% endblock %}
