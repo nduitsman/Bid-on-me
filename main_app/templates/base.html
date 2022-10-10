@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous"
+    />
+        <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+        <script src="{% static 'scripts/app.js' %}" defer></script>
+    </head>
+    <body>
+        <nav class='navbar'>
+            <div class='nav-start'>
+                <a class = 'navbar-item-link' href='/'>Home</a>
+                <a class = 'navbar-item-link' href='#'>About</a>
+            </div>
+            <div class = 'nav-end'>
+                {% if user.is_authenticated %}
+                    <p class = 'navbar-item'>Welcome, {{ user.username }}!</p>
+                    <a class="navbar-item-link" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a class="navbar-item-link" href="{% url 'login' %}">Login</a>
+                {% endif %}
+            
+            </div>
+        </nav>
+
+       
+        {% block content %} {% endblock %}
+    </body>
+</html>

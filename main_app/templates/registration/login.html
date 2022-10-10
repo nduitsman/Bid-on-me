@@ -1,0 +1,66 @@
+{% extends 'base.html' %} 
+{% block title %} Login {% endblock %}
+{% block content %}
+
+<div id="modal-fadeInScale-fs" class="modal modal-fx-fadeInScale">
+    <div class="modal-background"></div>
+    <div class="modal-content modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Login</p>
+            <button class="modal-button-close delete" id="closecross" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+        <div class="content">
+{% comment %} FORM START {% endcomment %}
+
+            {{ form.non_field_errors }}
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="field">
+                    <p class="control has-icons-left has-icons-right">
+                    <input class='input' type='text' name='username' autofocus autocapitalize='none' autocomplete='username' maxlength='150' required id='id_username' placeholder = 'Username'></input>
+                    <span class="icon is-small is-left">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    </p>
+                </div>
+                <div class="field">
+                    <p class="control has-icons-left">
+                    <input class='input' type='password' name='password' autocomplete='current-password' required id='id_password' placeholder ='Password'>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    </p>
+                </div>
+                <div class="field">
+                    <p class="control">
+                    <input class="button is-success" type="submit" value='Login'></input>
+                    <button class="modal-button-close button" id="closebtn"> Close </button>
+                    </p>
+                    <p>Don't have an account? Register <span><a href="{% url 'signup' %}">here!</a></span></p>
+                </div>
+            </form>
+{% comment %} FORM END {% endcomment %}
+        <div> 
+        </section>
+
+    </div>
+</div>
+  <script>
+    $(window).on('load', function() {
+      $(".modal").addClass("is-active"); 
+    });
+    $(".modal-close").click(function() {
+
+       $(".modal").removeClass("is-active");
+
+    });   
+    $("#closebtn").click(function() {   
+       $(".modal").removeClass("is-active");   
+    });   
+    $("#closecross").click(function() { 
+       $(".modal").removeClass("is-active");        
+    });
+    </script>
+{% comment %} MODAL END {% endcomment %}
+{% endblock %}

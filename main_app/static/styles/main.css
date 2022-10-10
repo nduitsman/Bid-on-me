@@ -1,0 +1,65 @@
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+.navbar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(100,100,100);
+    width: 100%; 
+    padding: 0 0.5em;   
+}
+.navbar-item-link, .navbar-item {
+    width: fit-content;
+    text-decoration: none;
+    color: white;
+    margin: 0 0.3em;
+}
+.navbar-item-link:hover {
+    cursor: pointer;
+    background-color: rgba(150,150,150,0.5);
+}
+.nav-start, .nav-end {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+}
+.form-error-msg {
+    background-color: rgb(255, 220,220);
+    border: 1px solid rgb(140,30,30);
+    color: rgb(140,30,30);
+    padding: 0.5em;
+    border-radius: 0.5em;
+    width: 100%;
+}
+
+.modal-content {
+    width: 30em;
+}
+.form-field-reqs {
+    position: relative;
+    font-size: 0.7em;
+    color: rgb(100,100,100);
+    top: -1em;
+}
+.ffr-li {
+    position: relative;
+    font-size: 0.7em;
+    color: rgb(100,100,100);
+    top: -1em;
+    list-style-type: none;
+}
+.errorlist li{
+    list-style: none;
+    color: red;
+    background-color: rgb(255, 220,220);
+    border: 1px solid rgb(140,30,30);
+    border-radius: 0.5em;
+    padding: 0.5em;
+    font-size: 0.7em;
+    margin: 0;
+    position: relative;
+    left: -2.7em;
+    width: 107%;
+}

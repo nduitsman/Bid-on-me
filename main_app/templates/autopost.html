@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block title %}New Auto Post{% endblock %}
+{% block content %}
+<h1>For best results, make your post as accurate as possible</h1>
+
+{% comment %} <form method="post" class='form_auto_post'>
+    {% csrf_token %} 
+    {{form.as_p}} 
+    <input type="submit" value="Submit" />
+  </form>  {% endcomment %}
+
+<form action = "{% url 'newAutoPost'  %}"method='post' class='form_auto_post'>
+    {% csrf_token %}
+    <div class="field">
+        <p class="control">
+            <label for='make'>Make</label>
+            <input class='input' type='text' name='make' autofocus autocapitalize='none' autocomplete='make' required id='id_make' placeholder = 'Make'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for='model'>Model</label>
+            <input class='input' type='text' name='model' autofocus autocapitalize='none' autocomplete='model' required id='id_model' placeholder = 'Model'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for='year'>Year (yyyy)</label>
+            <input class='input' type='number' name='year' autofocus autocapitalize='none' autocomplete='year' required id='id_year' placeholder = 'Year' ></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <div class='select'>
+                <select class='input' type='text' name='condition' autofocus autocapitalize='none' autocomplete='condition' required id='id_condition' placeholder = 'Condition'>
+                    <option>Select vehicle condition</option>
+                    <option>Like New</option>
+                    <option>Minor Cosmetic Issues</option>
+                    <option>Minor Mechanical Issues</option>
+                    <option>Major Cosmentic/Mechanical Issues</option>
+                </select>
+            </div>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for='mileage'>Mileage</label>
+            <input class='input' type='number' name='mileage' autofocus autocapitalize='none' autocomplete='mileage' required id='id_mileage' placeholder = 'Mileage'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for ='accidents'>Accidents in the last 5 years?</label>
+            <input class='input-checkbox' type='checkbox' name='accidents' autofocus autocapitalize='none' autocomplete='accidents' required id='id_accidents' placeholder = 'Accidents?'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for ='tickets'>Tickets in the last 5 years?</label>
+            <input class='input-checkbox' type='checkbox' name='tickets' autofocus autocapitalize='none' autocomplete='tickets' required id='id_tickets' placeholder = 'Tickets?'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for='premium'>Premium</label>
+            <input class='input' type='text' name='premium' autofocus autocapitalize='none' autocomplete='premium' required id='id_premium' placeholder = 'Current Monthly Premium'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for='provider'>Current Insurance Provider</label>
+            <input class='input' type='text' name='provider' autofocus autocapitalize='none' autocomplete='provider' required id='id_provider' placeholder = 'Current Provider'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+                <label for='liability'>Current Liability Coverage</label>
+                <input class='input' type='text' name='liability' autofocus autocapitalize='none' autocomplete='liability' required id='id_liability' placeholder = 'Current Liability Coverage'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for='uninsured'>Uninsured/Underinsured Motorist Coverage</label>
+            <input class='input' type='text' name='uninsured' autofocus autocapitalize='none' autocomplete='uninsured' required id='id_uninsured' placeholder = 'Current Uninsured/Underinsured Coverage'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for ='roadside'>Roadside Assistance?</label>
+            <input class='input-checkbox' type='checkbox' name='roadside' autofocus autocapitalize='none' autocomplete='roadside' required id='id_roadside' placeholder = 'Roadside Assistance?'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for = 'rental'>Rental Car Coverage Included?</label>
+            <input class='input-checkbox' type='checkbox' name='rental' autofocus autocapitalize='none' autocomplete='rental' required id='id_rental' placeholder = 'Rental Car Included?'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for='safe_driver'>Safe Driver Discount?</label>
+            <input class='input-checkbox' type='checkbox' name='safe_driver' autofocus autocapitalize='none' autocomplete='safe_driver' required id='id_safe_driver' placeholder = 'Safe Driver Discount?'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for='zip'>Zip Code</label>
+            <input class='input' type='number' name='zip' autofocus autocapitalize='none' autocomplete='zip' required id='id_zip' placeholder = 'Zip Code'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for='annual_miles'>Esimated Annual Miles Driven</label>
+            <input class='input' type='number' name='annual_miles' autofocus autocapitalize='none' autocomplete='annual_miles' required id='id_annual_miles' placeholder = 'Annual Miles Driven'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <div class='select'>
+                <select class='input' type='number' name='credit_score' autofocus autocapitalize='none' autocomplete='credit_score' required id='id_credit_score' placeholder = 'Credit Score'>
+                    <option>Select your credit score</option>
+                    <option>800+</option>
+                    <option>720-800</option>
+                    <option>600-720</option>
+                    <option>400-600</option>
+                </select>
+            </div>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <label for='age'>Current Age</label>
+            <input class='input' type='number' name='age' autofocus autocapitalize='none' autocomplete='age' required id='id_age' placeholder = 'Age'></input>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control">
+            <div class='select'>
+                <select class='input' type='text' name='coverage_preference' autofocus autocapitalize='none' autocomplete='coverage_preference' required id='id_coverage_preference' placeholder = 'New Coverage Preference'>
+                    <option>Choose your new coverage preference</option>
+                    <option>No coverage changes</option>
+                    <option>Similar coverage with minor adjustments allowed</option>
+                    <option>Open to any adjustments as needed</option>
+                </select>
+            </div>
+        </p>
+    </div>
+
+    <input class="button is-success" type="submit" value='Add Post' />
+</form>
+{% endblock %}
