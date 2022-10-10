@@ -8,27 +8,25 @@ class Profile(models.Model):
 
  
 class Auto(models.Model):
-    COVERAGE_CHOICES=[
-        ('NO COVERAGE CHANGES','No coverage changes'),
-        ('SIMILAR COVERAGE WITH MIOR ADJUSTMENTS','Similar coverage with minor adjustments'),
-        ('OPEN TO ANY ADJUSTMENTS','Open to any adjustments')
-    ]
-    CONDITION_CHOICES=[
-        ('LIKE NEW','Like New'),
-        ('MINOR COSMETIC ISSUES','Minor Cosmetic Issues'),
-        ('MINOR MECHANICAL ISSUES','Minor Mechanical Issues'),
-        ('MAJOR MECHANICAL ISSUES','Major Mechanical Issues')
-    ]
-    CREDIT_SCORE_CHOICES=[
-        ('800+','800+'),
-        ('720-800','720-800'),
-        ('600-719','600-719'),
-        ('400-599','400-599')
-    ]
+    # COVERAGE_CHOICES=[
+    #     ('NO COVERAGE CHANGES','No coverage changes'),
+    #     ('SIMILAR COVERAGE WITH MIOR ADJUSTMENTS','Similar coverage with minor adjustments'),
+    #     ('OPEN TO ANY ADJUSTMENTS','Open to any adjustments')
+    # ]
+    # CONDITION_CHOICES=[
+    #     ('LIKE NEW','Like New'),
+    #     ('MINOR COSMETIC ISSUES','Minor Cosmetic Issues'),
+    #     ('MINOR MECHANICAL ISSUES','Minor Mechanical Issues'),
+    #     ('MAJOR MECHANICAL ISSUES','Major Mechanical Issues')
+    # ]
+    # CREDIT_SCORE_CHOICES=[
+    #     ('800+','800+'),
+    #     ('720-800','720-800'),
+    #     ('600-719','600-719'),
+    #     ('400-599','400-599')
+    # ]
     
-    
-    user = models.ForeignKey(User)
-    
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     
     make = models.CharField(max_length=50)
     model = models.CharField(max_length=50)

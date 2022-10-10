@@ -38,10 +38,13 @@ class AutoPost(CreateView):
     model = Auto
     fields = ['make','model','year','condition','mileage','accidents','tickets','premium','provider','liability','uninsured','medical','roadside','safe_driver','zip','annual_miles','credit_score','age','coverage_preference']
     template_name = 'autopost.html'
+    success_url='/'
+    # def post(self, request, pk):
+    #     user = User.objects.get(id=request.user.id)
     
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super(AutoPost, self).form_valid(form)
-    def get_success_url(self):
-        print(self.kwargs)
-        return reverse('/', kwargs={'pk':self.object.pk})
+    # def form_valid(self, form):
+    #     form.instance.user = self.request.user
+    #     return super(AutoPost, self).form_valid(form)
+    # def get_success_url(self):
+    #     print(self.kwargs)
+    #     return reverse('home', kwargs={'pk':self.object.pk})

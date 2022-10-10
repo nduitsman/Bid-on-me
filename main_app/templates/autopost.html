@@ -3,13 +3,13 @@
 {% block content %}
 <h1>For best results, make your post as accurate as possible</h1>
 
-{% comment %} <form method="post" class='form_auto_post'>
+<form method="post" class='form_auto_post'>
     {% csrf_token %} 
     {{form.as_p}} 
     <input type="submit" value="Submit" />
-  </form>  {% endcomment %}
+  </form>  
 
-<form action = "{% url 'newAutoPost'  %}"method='post' class='form_auto_post'>
+{% comment %} <form method='post' class='form_auto_post'>
     {% csrf_token %}
     <div class="field">
         <p class="control">
@@ -51,13 +51,13 @@
     <div class="field">
         <p class="control">
             <label for ='accidents'>Accidents in the last 5 years?</label>
-            <input class='input-checkbox' type='checkbox' name='accidents' autofocus autocapitalize='none' autocomplete='accidents' required id='id_accidents' placeholder = 'Accidents?'></input>
+            <input class='input-checkbox' type='checkbox' name='accidents' autofocus autocapitalize='none' autocomplete='accidents' id='id_accidents' placeholder = 'Accidents?'></input>
         </p>
     </div>
     <div class="field">
         <p class="control">
             <label for ='tickets'>Tickets in the last 5 years?</label>
-            <input class='input-checkbox' type='checkbox' name='tickets' autofocus autocapitalize='none' autocomplete='tickets' required id='id_tickets' placeholder = 'Tickets?'></input>
+            <input class='input-checkbox' type='checkbox' name='tickets' autofocus autocapitalize='none' autocomplete='tickets' id='id_tickets' placeholder = 'Tickets?'></input>
         </p>
     </div>
     <div class="field">
@@ -87,19 +87,19 @@
     <div class="field">
         <p class="control">
             <label for ='roadside'>Roadside Assistance?</label>
-            <input class='input-checkbox' type='checkbox' name='roadside' autofocus autocapitalize='none' autocomplete='roadside' required id='id_roadside' placeholder = 'Roadside Assistance?'></input>
+            <input class='input-checkbox' type='checkbox' name='roadside' autofocus autocapitalize='none' autocomplete='roadside' id='id_roadside' placeholder = 'Roadside Assistance?'></input>
         </p>
     </div>
     <div class="field">
         <p class="control">
             <label for = 'rental'>Rental Car Coverage Included?</label>
-            <input class='input-checkbox' type='checkbox' name='rental' autofocus autocapitalize='none' autocomplete='rental' required id='id_rental' placeholder = 'Rental Car Included?'></input>
+            <input class='input-checkbox' type='checkbox' name='rental' autofocus autocapitalize='none' autocomplete='rental' id='id_rental' placeholder = 'Rental Car Included?'></input>
         </p>
     </div>
     <div class="field">
         <p class="control">
             <label for='safe_driver'>Safe Driver Discount?</label>
-            <input class='input-checkbox' type='checkbox' name='safe_driver' autofocus autocapitalize='none' autocomplete='safe_driver' required id='id_safe_driver' placeholder = 'Safe Driver Discount?'></input>
+            <input class='input-checkbox' type='checkbox' name='safe_driver' autofocus autocapitalize='none' autocomplete='safe_driver' id='id_safe_driver' placeholder = 'Safe Driver Discount?'></input>
         </p>
     </div>
     <div class="field">
@@ -147,5 +147,5 @@
     </div>
 
     <input class="button is-success" type="submit" value='Add Post' />
-</form>
+</form> {% endcomment %}
 {% endblock %}

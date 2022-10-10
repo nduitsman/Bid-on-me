@@ -21,6 +21,9 @@
             <div class='nav-start'>
                 <a class = 'navbar-item-link' href='/'>Home</a>
                 <a class = 'navbar-item-link' href='#'>About</a>
+                {% if user.is_authenticated %}
+                    <a class = 'navbar-item-link' href='auto/new'>New Post</a>
+                {% endif %}
             </div>
             <div class = 'nav-end'>
                 {% if user.is_authenticated %}
