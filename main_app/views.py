@@ -6,13 +6,15 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.urls import reverse
-from .models import Auto
+from .models import Auto, Profile
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 # Auth
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Home(TemplateView):
@@ -22,18 +24,31 @@ class Signup(View):
     # show a form to fill out
     def get(self, request):
         form = UserCreationForm()
-        context = {"form": form}
+        context = {"form": form}    
         return render(request, "registration/signup.html", context)
     # on form submit, validate the form and login the user.
     def post(self, request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
+            print(form.cleaned_data)
             user = form.save()
             login(request, user)
             return redirect("/")
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
+        
+        
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
+
+        
 @method_decorator(login_required, name='dispatch')
 class AutoPost(CreateView):
     model = Auto

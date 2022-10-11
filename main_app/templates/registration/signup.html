@@ -14,49 +14,60 @@
 
                 <form method="post" action="{% url 'signup' %}">
                 {% csrf_token %}
-
                 <div class="field">
                     <p class="control has-icons-left has-icons-right">
-                    <input class='input' type='text' name='username' autofocus autocapitalize='none' autocomplete='username' maxlength='20' required id='id_username' placeholder = 'Username'></input>
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-user"></i>
-                    </span>
-                    {{ form.username.errors }}
-                    <p class='form-field-reqs'>20 characters or fewer. Letters, digits and @/./+/-/_ only.</p>
+                        <input class='input' type='text' name='username' autofocus autocapitalize='none' autocomplete='username' maxlength='20' required id='id_username' placeholder = 'Username'></input>
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        {{ form.username.errors }}
+                        <p class='form-field-reqs'>20 characters or fewer. Letters, digits and @/./+/-/_ only.</p>
                     </p>
                 </div>
                 
                 <div class="field">
                     <p class="control has-icons-left">
-                    <input class='input' type='password' name='password1' autocomplete='new-password' required id='id_password1' placeholder ='Password'>
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                    {{ form.password1.errors }}
-                    <p class='form-field-reqs'>
-                        Your password can't be too similar to your other personal information.<br>
-                        Your password must contain at least 8 characters.<br>
-                        Your password can't be a commonly used password.<br>
-                        Your password can't be entirely numeric.
-                    </p>
+                        <input class='input' type='password' name='password1' autocomplete='new-password' required id='id_password1' placeholder ='Password'>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        {{ form.password1.errors }}
+                        <p class='form-field-reqs'>
+                            Your password can't be too similar to your other personal information.<br>
+                            Your password must contain at least 8 characters.<br>
+                            Your password can't be a commonly used password.<br>
+                            Your password can't be entirely numeric.
+                        </p>
                     </p>
                 </div>
                 <div class="field">
                     <p class="control has-icons-left">
-                    <input class='input' type='password' name='password2' autocomplete='new-password' required id='id_password2' placeholder ='Password'>
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                    {{ form.password2.errors }}
-                    <p class='form-field-reqs'>Enter the same password as before, for verification.</p>
+                        <input class='input' type='password' name='password2' autocomplete='new-password' required id='id_password2' placeholder ='Password'>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        {{ form.password2.errors }}
+                        <p class='form-field-reqs'>Enter the same password as before, for verification.</p>
                     
                     </p>
                 </div>
                 <div class="field">
                     <p class="control">
-                    <input class="button is-success" type="submit" value='Register'></input>
-                    <input type="hidden" name="next" value="{{ next }}" />
-                    <button class="modal-button-close button" id="closebtn"> Close </button>
+                        <div class='select'>
+                            <select class='input' type='text' name='account_type' autofocus autocapitalize='none' autocomplete='account_type' required id='id_account_type' placeholder = 'Account Type'>
+                                <option>Select account type</option>
+                                <option>Customer</option>
+                                <option>Bidder</option>
+                            </select>
+                        </div>
+                    </p>
+                    <p class='form-field-reqs'>Bidders are company representatives.</p>
+                </div>
+                <div class="field">
+                    <p class="control">
+                        <input class="button is-success" type="submit" value='Register'></input>
+                        <input type="hidden" name="next" value="{{ next }}" />
+                        <button class="modal-button-close button" id="closebtn"> Close </button>
                     </p>
                 </div>
             </form>
