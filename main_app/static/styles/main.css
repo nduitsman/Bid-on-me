@@ -1,7 +1,6 @@
 html {
     background-color: rgb(240,240,240);
     background-size: repeat;
-
 }
 .block-content {
     display: flex;
@@ -18,14 +17,16 @@ h1 {
     align-items: center;
     justify-content: space-between;
     background-color: rgb(100,100,100);
-    width: 100%; 
-    padding: 0 0.5em;   
+    width: 100%;
 }
 .navbar-item-link, .navbar-item {
     width: fit-content;
     text-decoration: none;
     color: white;
-    margin: 0 0.3em;
+    padding: 0.9em 0.4em;
+}
+.navbar-item-link {
+    text-align: right;
 }
 .navbar-item-link:hover {
     cursor: pointer;
@@ -85,10 +86,10 @@ h1 {
     grid-template-columns: 35% 25% 10% 20%;
     justify-content: space-between;
     align-items: center;
-    margin: 0.5em;
     border-radius: 5px;
     box-shadow: 0 5px 15px rgb(100,100,100);
     background-color: white;
+    margin: 0.4em 0;
 }
 .small-text {
     font-size: 0.6em;
@@ -109,4 +110,101 @@ h1 {
 #current_bids {
     color: red;
     text-align: right;
+}
+.contact_details {
+    box-shadow: 0 5px 15px rgb(100,100,100);
+    background-color: white;
+    border-radius: 5px;
+    grid-column: 2;
+}
+table {
+    border-collapse: collapse;
+    border-style: hidden;
+}
+table p {
+    font-size: 0.8rem;
+    font-weight: normal;
+    padding: 0 0.5rem;
+}
+table td {
+    border: 1px solid rgb(230,230,230);
+}
+table td:nth-child(1) {
+    text-align: right;
+    width: 7rem;
+}
+table td:nth-child(1) p {
+    font-weight: bold;
+    font-size: 0.8em;
+}
+table td:nth-child(2) {
+    width: 10rem;
+}
+table tr:last-child {
+    border: hidden;
+}
+.asterisk {
+    color: rgb(200,0,0);
+}
+.warning {
+    font-size: 2em;
+    font-weight: bold;
+    color: red;
+}
+.user_profile_page {
+    display: grid;
+    grid-template-columns: 10% minmax(10em,15em) minmax(30em,40em) 10%;
+    margin-top: 2em;
+}
+.user_profile_page img {
+    width: 100%;
+    border-radius: 5px;
+}
+#user_profile_posts {
+    box-shadow: 0 5px 15px rgb(100,100,100);
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 2em;
+    height: fit-content;
+    width: 100%;
+}
+.button.small {
+    background-color: rgb(200,200,200);
+    height: 1em;
+    grid-column: 2;
+    width: 100%;
+    border: 1px solid rgb(100,100,100);
+}
+.button.small a {
+    color: black;
+    font-size: 0.7rem;
+}
+.button.small:hover {
+    background-color: rgb(130,130,130);
+}
+.profile_listings {
+    background-color: white;
+    box-shadow: 0 5px 15px rgb(100,100,100);
+    border-radius: 5px;
+    margin: 0.6em 0;
+    text-align: center;
+
+}
+.column3_wrapper {
+    grid-column: 3;
+    margin: 0 0.6em;
+}
+#update_warning {
+    grid-column: 2;
+}
+.post_details {
+    box-shadow: 0 5px 15px rgb(100,100,100);
+    background-color: white;
+    border-radius: 5px;
+    margin: 0 0.7em 0.7em 0.7em;
+}
+#details_table td:nth-child(1) p {
+    font-weight: bold;
+    font-size: 0.9em;
 }

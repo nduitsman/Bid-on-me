@@ -1,0 +1,74 @@
+{% extends 'base.html' %} 
+{% block title %} User Profile {% endblock %}
+{% block content %}
+
+<div class='user_profile_page'>
+    {% if user.profile.account_type == '' %}
+        <div id='update_warning'>
+            <h2>Click the button below to finish setting up your account<h2>
+            <button class='button is-success'><a href="{% url 'profile_update' user.pk %}">Update Profile</a></button>
+        </div>
+    {% else %}
+        <div class='contact_details'>
+            <img src={{ user.profile.profile_image }}>
+            <table>
+                <tr>
+                    <td><p>Username:</p></td>
+                    <td><p>{{ user.username }}</p></td>
+                </tr>
+                <tr>
+                    <td><p>Email:</p></td>
+                    <td><p>{{ user.profile.email }}</p></td>
+                </tr>
+                <tr>
+                    <td><p>First Name:</p></td>
+                    <td><p>{{ user.profile.first_name }}</p></td>
+                </tr>
+                <tr>
+                    <td><p>Last Name:</p></td>
+                    <td><p>{{ user.profile.last_name }}</p></td>
+                </tr>
+                <tr>
+                    <td><p>Phone:</p> </td>
+                    <td><p>{{ user.profile.phone_number }}</p></td>
+                </tr>
+                <tr>
+                    <td><p>Account Type:</p></td>
+                    <td><p>{{ user.profile.account_type }}</p></td>
+                </tr>
+                <tr>
+                        <button class='button small'><a href="{% url 'profile_update' user.pk %}">Update Contact Details</a></button>
+                    </tr>
+            </table>
+        </div>
+        <div class='column3_wrapper'>
+            <div id='user_profile_posts'>
+                <p>Your Posts</p>
+            </div>
+            <div class='profile_listings'>
+                {% for auto_post in auto_posts %}
+                    {% if auto_post.username == user.username %}
+                    <a href="{% url 'auto_post_detail' auto_post.pk %}">
+                        <div class='listing'>
+                            <div class='name_coverage'>
+                                <p class='medium-text'>{{ auto_post.username }} - {{ auto_post.zip }}</p>
+                                        <p class='small-text'>{{ auto_post.coverage_preference }}</p>
+                                    </div>
+                                    <div id='post_liability'>
+                                        <p class='medium-text'>${{ auto_post.liability }}</p>
+                                    </div>
+                                    <div id='current_bids'>
+                                        <p class='medium-text'># Bids</p>
+                                    </div>
+                                    <div id='post_premium'>
+                                        <p class='medium-text'>${{ auto_post.premium }}/mo  </p>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                        </a>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+{% endif %}
+{% endblock %}

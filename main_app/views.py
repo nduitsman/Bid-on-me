@@ -6,6 +6,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.urls import reverse
+
 from .models import Auto, Profile
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
@@ -20,17 +21,22 @@ from django.dispatch import receiver
 class Home(TemplateView):
     template_name = 'home.html'
 
+class UserProfile(TemplateView):
+    template_name = 'user_profile.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        context["auto_posts"] = Auto.objects.all()
+        return context
+    
 class Signup(View):
-    # show a form to fill out
     def get(self, request):
         form = UserCreationForm()
-        context = {"form": form}    
+        context = {"form": form}
         return render(request, "registration/signup.html", context)
-    # on form submit, validate the form and login the user.
+  
     def post(self, request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            print(form.cleaned_data)
             user = form.save()
             login(request, user)
             return redirect("/")
@@ -64,4 +70,30 @@ class AutoList(TemplateView):
         context["auto_posts"] = Auto.objects.all()
         return context
     
+class ProfileUpdate(UpdateView):
+    model = Profile
+    fields = ['account_type','email','first_name','last_name','phone_number','profile_image']
+    template_name = 'profile_update.html'
+    def get_success_url(self):
+        return reverse('user_profile', kwargs={'pk': self.object.pk})
     
+class UpdateAutoPost(UpdateView):
+    model = Auto
+    fields = ['make','vehicle_model','year' ,'condition','mileage','accidents','tickets','premium','provider','liability','uninsured','medical','roadside','rental','safe_driver','zip' ,'annual_miles','credit_score','age','coverage_preference','username']
+    template_name = 'auto_post_update.html'
+    def get_success_url(self):
+        return reverse('user_profile', kwargs={'pk': self.object.pk})
+    
+class AutoPostDetail(DetailView):
+    model = Auto
+    template_name= 'auto_post_detail.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        context["auto_posts"] = Auto.objects.all()
+        return context
+    
+class AutoPostDelete(DeleteView):
+    model = Auto
+    template_name = 'auto_post_delete.html'
+    def get_success_url(self):
+        return reverse('user_profile', kwargs={'pk': self.object.pk})

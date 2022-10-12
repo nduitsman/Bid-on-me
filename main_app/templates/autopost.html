@@ -1,13 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}New Auto Post{% endblock %}
 {% block content %}
-<h1>For best results, make your post as accurate as possible</h1>
-
-{% comment %} <form method="post" class='form_auto_post'>
-    {% csrf_token %} 
-    {{form.as_p}} 
-    <input type="submit" value="Submit" />
-  </form>   {% endcomment %}
+<h1>Post current information</h1>
+<h2>For best results, make your post as accurate as possible</h2>
 
 <form method='post' class='form_auto_post'>
     {% csrf_token %}

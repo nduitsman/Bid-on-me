@@ -27,7 +27,10 @@
             </div>
             <div class = 'nav-end'>
                 {% if user.is_authenticated %}
-                    <p class = 'navbar-item'>Welcome, {{ user.username }}!</p>
+                    {% if user.profile.account_type == ''%}
+                        <p class='warning'>!</p>
+                    {% endif %}
+                    <a class="navbar-item-link" href="{% url 'user_profile' user.pk %}">Welcome, {{ user.username }}!</a>
                     <a class="navbar-item-link" href="{% url 'logout' %}">Logout</a>
                 {% else %}
                     <a class="navbar-item-link" href="{% url 'login' %}">Login</a>

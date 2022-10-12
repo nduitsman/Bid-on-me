@@ -1,0 +1,65 @@
+{% extends 'base.html' %} 
+{% block title %} Update Profile {% endblock %}
+{% block content %}
+
+<div>
+    <h1>Update Your Profile<h1>
+</div>
+<div>
+    <form action="" method="post" class='formUpdate'>
+        {% csrf_token %}
+        <div class="field">
+            <p class="control">
+                <label for='account_type'>Select account type: <span class='asterisk'>*</span></label>
+                <div class='select'>
+                    <select class='input' type='text' name='account_type' autofocus autocapitalize='none' autocomplete='account_type' required id='id_account_type' value= {{user.profile.account_type}}>
+                        <option>Select type</option>
+                        <option>Customer</option>
+                        <option>Bidder</option>
+                    </select>
+                </div>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <label for='email'>Email: <span class='asterisk'>*</span> </label>
+                <input class='input' type='email' name='email' autofocus autocapitalize='none' autocomplete='email' required id='id_email' value = {{user.profile.email}}></input>
+            </p>
+            {{ form.email.errors }}
+        </div>
+        <div class="field">
+            <p class="control">
+                <label for='first_name'>First Name: <span class='asterisk'>*</span></label>
+                <input class='input' type='text' name='first_name' autofocus autocapitalize='none' autocomplete='first_name' required id='id_first_name' value={{user.profile.first_name}}></input>
+            </p>
+            {{ form.first_name.errors }}
+        </div>
+        <div class="field">
+            <p class="control">
+                <label for='last_name'>Last Name: <span class='asterisk'>*</span></label>
+                <input class='input' type='text' name='last_name' autofocus autocapitalize='none' autocomplete='last_name' required id='id_last_name' value={{user.profile.last_name}}></input>
+            </p>
+            {{ form.last_name.errors }}
+        </div>
+        <div class="field">
+            <p class="control">
+                <label for='phone_number'>Phone Number: </label>
+                <input class='input' type='text' name='phone_number' autofocus autocapitalize='none' autocomplete='phone_number' id='id_phone_number' value={{user.profile.phone_number}}></input>
+            </p>
+            {{ form.phone_number.errors }}
+        </div>
+        <div class="field">
+            <p class="control">
+                <label for='profile_image'>Profile Image: </label>
+                <input class='input' type='text' name='profile_image' autofocus autocapitalize='none' autocomplete='profile_image'  id='id_profile_image' placeholder='http://...' value={{user.profile.profile_image}}></input>
+            </p>
+            {{ form.profile_image.errors }}
+        </div>
+        <input class='button is-success' type = 'submit' value='Submit Changes'/>
+        <button class='button'><a href="{% url 'user_profile' user.pk %}">Return to Profile</a></button>
+        <p><span class='asterisk'>*</span> indicates a required field
+    </form>
+</div>
+
+
+{% endblock %}

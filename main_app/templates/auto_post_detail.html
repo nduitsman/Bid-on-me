@@ -1,0 +1,80 @@
+{% extends 'base.html' %} 
+{% block title %} Post Details {% endblock %}
+{% block content %}
+<h1>Additional Details</h1>
+<div class='post_details'>
+    <table id='details_table'>
+        <tr>
+            <td><p>Username:</p></td><td><p>{{auto.username}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Make:</p></td><td><p>{{auto.make}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Model:</p></td><td><p>{{auto.vehicle_model}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Year:</p></td><td><p>{{auto.year}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Condition:</p></td><td><p>{{auto.condition}}</p></td>
+        </tr>
+        <tr>  
+            <td><p>Mileage:</p></td><td><p>{{auto.mileage}}</p></td>
+        </tr>
+        <tr> 
+            <td><p>Accidents:</p></td><td><p>{{auto.accidents}}</p></td>
+        </tr>
+        <tr>  
+            <td><p>Tickets:</p></td><td><p>{{auto.tickets}}</p></td>
+        </tr>
+        <tr>  
+            <td><p>Monthly Premium:</p></td><td><p>{{auto.premium}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Current Provider:</p></td><td><p>{{auto.provider}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Liability Coverage:</p></td><td><p>{{auto.liability}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Uninsured/Underinsured Coverage:</p></td><td><p>{{auto.uninsured}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Medical Payments:</p></td><td><p>{{auto.medical}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Roadside:</p></td><td><p>{{auto.roadside}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Rental:</p></td><td><p>{{auto.rental}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Safe Driver Discount:</p></td><td><p>{{auto.safe_driver}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Zip Code:</p></td><td><p>{{auto.zip}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Annual Miles Driven:</p></td><td><p>{{auto.annual_miles}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Credit Score:</p></td><td><p>{{auto.credit_score}}</p></td>
+        </tr>
+        <tr>
+            <td><p>Age:</p></td><td><p>{{auto.age}}</p></td>
+        </tr>
+        <tr>
+            <td><p>New Coverage Preference:</p></td><td><p>{{auto.coverage_preference}}</p></td>
+        </tr>
+        </td>
+    </table>
+</div>
+{% if auto.username == user.username %}
+    {% comment %} <br> {% endcomment %}
+    <div>
+        <button class='button is-success'><a href="{% url 'auto_post_update' auto.pk %}">Update Post</a></button>
+        <button class='button is-danger'><a href="{% url 'auto_post_delete' auto.pk %}">Delete Post</a></button>
+    </div>
+{% endif %}
+{% endblock%}
