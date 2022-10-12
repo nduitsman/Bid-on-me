@@ -47,27 +47,27 @@
             </div>
             <div class='profile_listings'>
                 {% for auto_post in auto_posts %}
-                    {% if auto_post.username == user.username %}
+                {% if auto_post.username == user.username %}
                     <a href="{% url 'auto_post_detail' auto_post.pk %}">
                         <div class='listing'>
                             <div class='name_coverage'>
                                 <p class='medium-text'>{{ auto_post.username }} - {{ auto_post.zip }}</p>
-                                        <p class='small-text'>{{ auto_post.coverage_preference }}</p>
-                                    </div>
-                                    <div id='post_liability'>
-                                        <p class='medium-text'>${{ auto_post.liability }}</p>
-                                    </div>
-                                    <div id='current_bids'>
-                                        <p class='medium-text'># Bids</p>
-                                    </div>
-                                    <div id='post_premium'>
-                                        <p class='medium-text'>${{ auto_post.premium }}/mo  </p>
-                                    </div>
-                                    {% endif %}
-                                </div>
-                        </a>
-                {% endfor %}
+                                <p class='small-text'>{{ auto_post.coverage_preference }}</p>
+                            </div>
+                            <div id='post_liability'>
+                                <p class='medium-text'>${{ auto_post.liability }}</p>
+                            </div>
+                            <div id='current_bids'>
+                                <p class='medium-text'># Bids</p>
+                            </div>
+                            <div id='post_premium'>
+                                <p class='medium-text'>${{ auto_post.premium }}/mo  </p>
+                            </div>
+                    {% endif %}
+                        </div>
+                    </a>
             </div>
+                {% endfor %}
         </div>
 </div>
 {% endif %}

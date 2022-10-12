@@ -76,20 +76,20 @@ h1 {
     width: 107%;
 }
 .listings {
-    min-width: 60%;
-    max-width: 70%;
+    min-width: 40em;
     display: flex;
     flex-direction: column;
 }
 .listing {
     display: grid;
-    grid-template-columns: 35% 25% 10% 20%;
+    grid-template-columns: 50% 20% 10% 20%;
     justify-content: space-between;
     align-items: center;
     border-radius: 5px;
     box-shadow: 0 5px 15px rgb(100,100,100);
     background-color: white;
     margin: 0.4em 0;
+    width: 100%;
 }
 .small-text {
     font-size: 0.6em;
@@ -146,14 +146,20 @@ table tr:last-child {
 .asterisk {
     color: rgb(200,0,0);
 }
+@keyframes pulse {
+    0% {transform: scale(1)}
+    50% {transform: scale(1.4)}
+    100% {transform: scale(1)}
+}
 .warning {
     font-size: 2em;
     font-weight: bold;
     color: red;
+    animation: pulse 1s infinite;
 }
 .user_profile_page {
     display: grid;
-    grid-template-columns: 10% minmax(10em,15em) minmax(30em,40em) 10%;
+    grid-template-columns: 10% minmax(15em,15em) minmax(35em,60em) 10%;
     margin-top: 2em;
 }
 .user_profile_page img {

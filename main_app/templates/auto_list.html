@@ -4,6 +4,7 @@
     <h1 class='title-large'>Auto Coverage Postings</h1>
     <div class='listings'>
         {% for auto_post in auto_posts %}
+        <a href="{% url 'auto_post_detail' auto_post.pk %}">
             <div class='listing'>
                     <div class='name_coverage'>
                         <p class='medium-text'>{{ auto_post.username }} - {{ auto_post.zip }}</p>
@@ -19,6 +20,7 @@
                         <p class='medium-text'>${{ auto_post.premium }}/mo  </p>
                     </div>
             </div>
+        </a>
         
         {% empty %}
             <p> No results found </p>

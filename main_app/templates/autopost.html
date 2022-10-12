@@ -11,18 +11,21 @@
             <label for='make'>Make</label>
             <input class='input' type='text' name='make' autofocus autocapitalize='none' autocomplete='make' required id='id_make' placeholder = 'Make'></input>
         </p>
+        {{ form.make.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for='vehicle_model'>Model</label>
             <input class='input' type='text' name='vehicle_model' autofocus autocapitalize='none' autocomplete='vehicle_model' required id='id_vehicle_model' placeholder = 'Model'></input>
         </p>
+        {{ form.vehicle_model.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for='year'>Year (yyyy)</label>
             <input class='input' type='number' name='year' autofocus autocapitalize='none' autocomplete='year' required id='id_year' placeholder = 'Year' ></input>
         </p>
+        {{ form.year.errors }}
     </div>
     <div class="field">
         <p class="control">
@@ -36,84 +39,98 @@
                 </select>
             </div>
         </p>
+        {{ form.condition.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for='mileage'>Mileage</label>
             <input class='input' type='number' name='mileage' autofocus autocapitalize='none' autocomplete='mileage' required id='id_mileage' placeholder = 'Mileage'></input>
         </p>
+        {{ form.mileage.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for ='accidents'>Accidents in the last 5 years?</label>
             <input class='input-checkbox' type='checkbox' name='accidents' autofocus autocapitalize='none' autocomplete='accidents' id='id_accidents' placeholder = 'Accidents?'></input>
         </p>
+        {{ form.accidents.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for ='tickets'>Tickets in the last 5 years?</label>
             <input class='input-checkbox' type='checkbox' name='tickets' autofocus autocapitalize='none' autocomplete='tickets' id='id_tickets' placeholder = 'Tickets?'></input>
         </p>
+        {{ form.tickets.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for='premium'>Premium</label>
             <input class='input' type='text' name='premium' autofocus autocapitalize='none' autocomplete='premium' required id='id_premium' placeholder = 'Current Monthly Premium'></input>
         </p>
+        {{ form.premium.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for='provider'>Current Insurance Provider</label>
             <input class='input' type='text' name='provider' autofocus autocapitalize='none' autocomplete='provider' required id='id_provider' placeholder = 'Current Provider'></input>
         </p>
+        {{ form.provider.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for='liability'>Current Liability Coverage</label>
             <input class='input' type='text' name='liability' autofocus autocapitalize='none' autocomplete='liability' required id='id_liability' placeholder = 'Current Liability Coverage'></input>
         </p>
+        {{ form.liability.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for='uninsured'>Uninsured/Underinsured Motorist Coverage</label>
             <input class='input' type='text' name='uninsured' autofocus autocapitalize='none' autocomplete='uninsured' required id='id_uninsured' placeholder = 'Current Uninsured/Underinsured Coverage'></input>
         </p>
+        {{ form.uninsured.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for='medical'>Medical Payments Coverage</label>
             <input class='input' type='number' name='medical' autofocus autocapitalize='none' autocomplete='medical' required id='id_medical' placeholder = 'medical'></input>
         </p>
+        {{ form.medical.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for ='roadside'>Roadside Assistance?</label>
             <input class='input-checkbox' type='checkbox' name='roadside' autofocus autocapitalize='none' autocomplete='roadside' id='id_roadside' placeholder = 'Roadside Assistance?'></input>
         </p>
+        {{ form.roadside.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for = 'rental'>Rental Car Coverage Included?</label>
             <input class='input-checkbox' type='checkbox' name='rental' autofocus autocapitalize='none' autocomplete='rental' id='id_rental' placeholder = 'Rental Car Included?'></input>
         </p>
+        {{ form.rental.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for='safe_driver'>Safe Driver Discount?</label>
             <input class='input-checkbox' type='checkbox' name='safe_driver' autofocus autocapitalize='none' autocomplete='safe_driver' id='id_safe_driver' placeholder = 'Safe Driver Discount?'></input>
         </p>
+        {{ form.safe_driver.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for='zip'>Zip Code</label>
             <input class='input' type='number' name='zip' autofocus autocapitalize='none' autocomplete='zip' required id='id_zip' placeholder = 'Zip Code'></input>
         </p>
+        {{ form.zip.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for='annual_miles'>Esimated Annual Miles Driven</label>
             <input class='input' type='number' name='annual_miles' autofocus autocapitalize='none' autocomplete='annual_miles' required id='id_annual_miles' placeholder = 'Annual Miles Driven'></input>
         </p>
+        {{ form.annual_miles.errors }}
     </div>
     <div class="field">
         <p class="control">
@@ -127,12 +144,14 @@
                 </select>
             </div>
         </p>
+        {{ form.credit_score.errors }}
     </div>
     <div class="field">
         <p class="control">
             <label for='age'>Current Age</label>
             <input class='input' type='number' name='age' autofocus autocapitalize='none' autocomplete='age' required id='id_age' placeholder = 'Age'></input>
         </p>
+        {{ form.age.errors }}
     </div>
     <div class="field">
         <p class="control">
@@ -145,6 +164,7 @@
                 </select>
             </div>
         </p>
+        {{ form.coverage_preference.errors }}
     </div>
     <div class="field">
         <p class="control">
