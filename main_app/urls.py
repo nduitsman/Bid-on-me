@@ -11,4 +11,5 @@ urlpatterns = [
     path('auto/',views.AutoList.as_view(), name = 'auto_posts'),
     path('auto/<int:pk>/detail/',views.AutoPostDetail.as_view(), name = 'auto_post_detail'),
     path('auto/<int:pk>/delete/', views.AutoPostDelete.as_view(), name="auto_post_delete"),
+    path('auto/<int:pk>/bid/new/', views.BidCreate.as_view(), name="bid_create"),
 ]

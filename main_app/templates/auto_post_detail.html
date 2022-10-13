@@ -2,79 +2,124 @@
 {% block title %} Post Details {% endblock %}
 {% block content %}
 <h1>Additional Details</h1>
-<div class='post_details'>
-    <table id='details_table'>
-        <tr>
-            <td><p>Username:</p></td><td><p>{{auto.username}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Make:</p></td><td><p>{{auto.make}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Model:</p></td><td><p>{{auto.vehicle_model}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Year:</p></td><td><p>{{auto.year}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Condition:</p></td><td><p>{{auto.condition}}</p></td>
-        </tr>
-        <tr>  
-            <td><p>Mileage:</p></td><td><p>{{auto.mileage}}</p></td>
-        </tr>
-        <tr> 
-            <td><p>Accidents:</p></td><td><p>{{auto.accidents}}</p></td>
-        </tr>
-        <tr>  
-            <td><p>Tickets:</p></td><td><p>{{auto.tickets}}</p></td>
-        </tr>
-        <tr>  
-            <td><p>Monthly Premium:</p></td><td><p>{{auto.premium}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Current Provider:</p></td><td><p>{{auto.provider}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Liability Coverage:</p></td><td><p>{{auto.liability}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Uninsured/Underinsured Coverage:</p></td><td><p>{{auto.uninsured}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Medical Payments:</p></td><td><p>{{auto.medical}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Roadside:</p></td><td><p>{{auto.roadside}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Rental:</p></td><td><p>{{auto.rental}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Safe Driver Discount:</p></td><td><p>{{auto.safe_driver}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Zip Code:</p></td><td><p>{{auto.zip}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Annual Miles Driven:</p></td><td><p>{{auto.annual_miles}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Credit Score:</p></td><td><p>{{auto.credit_score}}</p></td>
-        </tr>
-        <tr>
-            <td><p>Age:</p></td><td><p>{{auto.age}}</p></td>
-        </tr>
-        <tr>
-            <td><p>New Coverage Preference:</p></td><td><p>{{auto.coverage_preference}}</p></td>
-        </tr>
-        </td>
-    </table>
+<div id='details_wrapper'>
+    <div class='post_details'>
+        <table id='details_table'>
+            <tr>
+                <td><p>Username:</p></td><td><p>{{auto.username}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Make:</p></td><td><p>{{auto.make}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Model:</p></td><td><p>{{auto.vehicle_model}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Year:</p></td><td><p>{{auto.year}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Condition:</p></td><td><p>{{auto.condition}}</p></td>
+            </tr>
+            <tr>  
+                <td><p>Mileage:</p></td><td><p>{{auto.mileage}}</p></td>
+            </tr>
+            <tr> 
+                <td><p>Accidents:</p></td><td><p>{{auto.accidents}}</p></td>
+            </tr>
+            <tr>  
+                <td><p>Tickets:</p></td><td><p>{{auto.tickets}}</p></td>
+            </tr>
+            <tr>  
+                <td><p>Monthly Premium:</p></td><td><p>${{auto.premium}}/mo</p></td>
+            </tr>
+            <tr>
+                <td><p>Current Provider:</p></td><td><p>{{auto.provider}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Liability Coverage:</p></td><td><p>${{auto.liability}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Uninsured/Underinsured Coverage:</p></td><td><p>${{auto.uninsured}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Medical Payments:</p></td><td><p>${{auto.medical}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Roadside:</p></td><td><p>{{auto.roadside}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Rental:</p></td><td><p>{{auto.rental}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Safe Driver Discount:</p></td><td><p>{{auto.safe_driver}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Zip Code:</p></td><td><p>{{auto.zip}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Annual Miles Driven:</p></td><td><p>{{auto.annual_miles}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Credit Score:</p></td><td><p>{{auto.credit_score}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Age:</p></td><td><p>{{auto.age}}</p></td>
+            </tr>
+            <tr>
+                <td><p>New Coverage Preference:</p></td><td><p>{{auto.coverage_preference}}</p></td>
+            </tr>
+            </td>
+        </table>
+    </div>
 </div>
 {% if auto.username == user.username %}
-    {% comment %} <br> {% endcomment %}
     <div>
         <button class='button is-success'><a href="{% url 'auto_post_update' auto.pk %}">Update Post</a></button>
         <button class='button is-danger'><a href="{% url 'auto_post_delete' auto.pk %}">Delete Post</a></button>
     </div>
 {% endif %}
+
+{% if user.profile.account_type == 'Bidder' %}
+    <div id='bid_create'>
+        <form method='post' class='form_auto_post' action="{% url 'bid_create' auto.pk %}">
+            {% csrf_token %}
+            <div class="field">
+                <p class="control">
+                    <label for='more_info'>To make a bid, add your information below! </label>
+                    <textarea class='textarea' type='text' name='more_info' autofocus autocapitalize='none' autocomplete='more_info' required id='id_more_info' placeholder = 'Additional Information'></textarea>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control">
+                    <input class='input' type='hidden' name='username' autofocus autocapitalize='none' autocomplete='username' required id='id_username' value={{user.username}}></input>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control">
+                    <input class='input' type='hidden' name='phone_number' autofocus autocapitalize='none' autocomplete='phone_number' required id='id_use' value={{user.profile.phone_number}}></input>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control">
+                    <input class='input' type='hidden' name='company' autofocus autocapitalize='none' autocomplete='company' required id='id_use' value={{user.profile.company}}></input>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control">
+                    <input class='input' type='hidden' name='auto_post_id' autofocus autocapitalize='none' autocomplete='auto_post_id' required id='id_auto_post_id' value={{auto.id}}></input>
+                </p>
+            </div>
+            <input class="button is-success" type="submit" value='Make Bid' />
+        </form>
+    </div>
+{% endif %}
+    {% for bid in bids %}
+        {% if auto.id == bid.auto_post_id %}
+            <div class='bid_details'>
+                <hr>
+                <p>{{ bid.company }} - {{ bid.username }} - {{ bid.phone_number }}</p>
+                <p>{{ bid.more_info }}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
 {% endblock%}

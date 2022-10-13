@@ -26,10 +26,19 @@ class Auto(models.Model):
     age = models.IntegerField(default=None)
     coverage_preference = models.CharField(max_length=50, default=None)
     username = models.CharField(max_length=100, default=None)
+    # bid_count = models.IntegerField(default=None)
     
     def __str__(self):
         return self.make
-  
+class Bid(models.Model):
+    auto_post_id = models.IntegerField(default=None)
+    username = models.CharField(max_length=150, default=None)
+    company = models.CharField(max_length=150, default=None)
+    phone_number = models.CharField(max_length=150, default=None)
+    more_info = models.TextField(max_length=1000, default=None)
+    def __str__(self):
+        return self.company
+    
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     account_type = models.CharField(max_length=50, blank=True)
@@ -38,18 +47,7 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=100, blank=True)
     phone_number = models.CharField(max_length=10, blank=True)
     profile_image = models.CharField(max_length=250, blank=True)
+    company = models.CharField(max_length=150, blank=True)
     
     def __str__(self):
         return f'{self.user.username} Profile'
-
-    # def save(self, *args, **kwargs):
-    #     super().save(*args, **kwargs)
-        
-# @receiver(post_save, sender=User)
-# def create_user_profile(sender, instance, created, **kwargs):
-#     if created:
-#         Profile.objects.create(user=instance)
-
-# @receiver(post_save, sender=User)
-# def save_user_profile(sender, instance, **kwargs):
-#     instance.profile.save()

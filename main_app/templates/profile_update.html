@@ -13,12 +13,19 @@
                 <label for='account_type'>Select account type: <span class='asterisk'>*</span></label>
                 <div class='select'>
                     <select class='input' type='text' name='account_type' autofocus autocapitalize='none' autocomplete='account_type' required id='id_account_type' value= {{user.profile.account_type}}>
-                        <option>Select type</option>
-                        <option>Customer</option>
-                        <option>Bidder</option>
+                        <option value = 'Select type'>Select type</option>
+                        <option value = 'Customer'>Customer</option>
+                        <option value = 'Bidder'>Bidder</option>
                     </select>
                 </div>
             </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <label for='company'>Company you represent (if Bidder): </label>
+                <input class='input' type='company' name='company' autofocus autocapitalize='none' autocomplete='company' id='id_company' value = {{user.profile.company}}></input>
+            </p>
+            {{ form.company.errors }}
         </div>
         <div class="field">
             <p class="control">
@@ -43,8 +50,8 @@
         </div>
         <div class="field">
             <p class="control">
-                <label for='phone_number'>Phone Number: </label>
-                <input class='input' type='text' name='phone_number' autofocus autocapitalize='none' autocomplete='phone_number' id='id_phone_number' value={{user.profile.phone_number}}></input>
+                <label for='phone_number'>Phone Number: <span class='asterisk'>*</span></label>
+                <input class='input' type='text' name='phone_number' autofocus autocapitalize='none' autocomplete='phone_number' required id='id_phone_number' value={{user.profile.phone_number}}></input>
             </p>
             {{ form.phone_number.errors }}
         </div>

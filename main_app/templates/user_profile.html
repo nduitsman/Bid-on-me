@@ -37,8 +37,12 @@
                     <td><p>{{ user.profile.account_type }}</p></td>
                 </tr>
                 <tr>
+                    <td><p>Company Represented (if Bidder):</p></td>
+                    <td><p>{{ user.profile.company }}</p></td>
+                </tr>
+                <tr>
                         <button class='button small'><a href="{% url 'profile_update' user.pk %}">Update Contact Details</a></button>
-                    </tr>
+                </tr>
             </table>
         </div>
         <div class='column3_wrapper'>
@@ -46,8 +50,8 @@
                 <p>Your Posts</p>
             </div>
             <div class='profile_listings'>
+                <h1>{{auto_posts.id}}</h1>
                 {% for auto_post in auto_posts %}
-                {% if auto_post.username == user.username %}
                     <a href="{% url 'auto_post_detail' auto_post.pk %}">
                         <div class='listing'>
                             <div class='name_coverage'>
@@ -57,13 +61,12 @@
                             <div id='post_liability'>
                                 <p class='medium-text'>${{ auto_post.liability }}</p>
                             </div>
-                            <div id='current_bids'>
+                            {% comment %} <div id='current_bids'>
                                 <p class='medium-text'># Bids</p>
-                            </div>
+                            </div> {% endcomment %}
                             <div id='post_premium'>
                                 <p class='medium-text'>${{ auto_post.premium }}/mo  </p>
                             </div>
-                    {% endif %}
                         </div>
                     </a>
             </div>
