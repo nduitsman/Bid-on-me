@@ -69,7 +69,10 @@ class AutoList(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs) 
         context["auto_posts"] = Auto.objects.all()
+        # for post in context['auto_posts']:
+        #     context['test'] = Bid.objects.all().filter(auto_post_id = post['id'])
         context["bids"] = Bid.objects.all()
+
         return context
     
 class ProfileUpdate(UpdateView):
