@@ -27,6 +27,7 @@ class UserProfile(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs) 
         context["auto_posts"] = Auto.objects.all().filter(username = self.request.user.username)
+        context["bids"] = Bid.objects.all()
         return context
     
 class Signup(View):

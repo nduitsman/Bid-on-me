@@ -69,8 +69,18 @@
                             </div>
                         </div>
                     </a>
+                    {% endfor %}
             </div>
-                {% endfor %}
+                {% for bid in bids %}
+                    {% if bid.username == user.username %}
+                        
+                            <div class='profile_bid_details'>
+                                <p>{{ bid.company }} - {{ bid.username }} - {{ bid.phone_number }}</p>
+                                <p>{{ bid.more_info }}</p>
+                            </div>
+                        
+                    {% endif %}
+                {% endfor %} 
         </div>
 </div>
 {% endif %}

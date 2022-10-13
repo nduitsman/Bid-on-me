@@ -26,11 +26,12 @@ class Auto(models.Model):
     age = models.IntegerField(default=None)
     coverage_preference = models.CharField(max_length=50, default=None)
     username = models.CharField(max_length=100, default=None)
-    # bid_count = models.IntegerField(default=None)
+   
     
     def __str__(self):
         return self.make
 class Bid(models.Model):
+    # auto_post_id = models.ForeignKey(Auto, on_delete=models.CASCADE, related_name="id")
     auto_post_id = models.IntegerField(default=None)
     username = models.CharField(max_length=150, default=None)
     company = models.CharField(max_length=150, default=None)

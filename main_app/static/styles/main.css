@@ -225,3 +225,11 @@ hr {
 #bid_create {
     width: 75%;
 }
+.profile_bid_details {
+    margin: 1em;
+    border: 1px solid red;
+    background-color: white;
+    border: 5px;
+    box-shadow: 0 5px 15px rgb(100,100,100);
+    padding: 0.5em;
+}
