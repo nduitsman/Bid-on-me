@@ -1,1 +1,1 @@
-web: gunicorn bid-on-me.wsgi
+web: gunicorn bid_on_me.wsgi
