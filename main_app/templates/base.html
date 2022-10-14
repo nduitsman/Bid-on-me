@@ -19,7 +19,11 @@
     <body>
         <nav class='navbar'>
             <div class='nav-start'>
-                <a class = 'navbar-item-link' href="{% url 'home' %}">Home</a>
+                <a class = 'navbar-item-link' href="{% url 'home' %}">
+                    <div id='logo-wrapper'>
+                        <img id='logo' src="https://img.icons8.com/external-filled-color-icons-papa-vector/78/000000/external-Bidding-auction-filled-color-icons-papa-vector-3.png"/>Bid On Me
+                    </div>
+                </a>
                 {% if user.is_authenticated %}
                     <a class = 'navbar-item-link' href="{% url 'auto_posts' %}">Auto</a>
                     {% if user.profile.account_type == 'Customer' %}
