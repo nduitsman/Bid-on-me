@@ -309,4 +309,17 @@ hr {
     justify-content: center;
     align-items: center;
 }
-
+#update_warning {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    box-shadow: 0 5px 15px rgb(100,100,100);
+    border-radius: 10px;
+    background-color: white;
+    padding: 1em;
+}
+#update_warning h2,button {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
