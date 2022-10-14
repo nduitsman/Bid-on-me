@@ -27,8 +27,10 @@ https://bid-on-me.herokuapp.com/
 ![Screen Shot 2022-10-14 at 3 30 03 PM](https://user-images.githubusercontent.com/109879521/195927066-502b8402-a1f1-4a47-8c81-3026746b01fd.png)
 
 
-***MVP User Stories***
+*** MVP User Stories ***
 - "As a user, I want to remain anonymous until the best bid is available."
 - "As a user, I want to be able to add my info quickly without a lot of account setup."
 - "As a user, I want to be able to view all my posts and relvant status updates in one locaiton."
+-*** POST MVP Stretch Goals ***
 - "As a user, I want to be able to update my display name and profile picture and delete my account." 
+- "As a bidder, I would like to see how many other bids exist on a post before viewing the more details option."
